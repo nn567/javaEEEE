@@ -64,6 +64,49 @@ public class gestionF extends HttpServlet {
         
     }
     
+   protected void ajoutEntraineur(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException           
+    {
+        String nom = request.getParameter("nomEnt");
+        String prenom = request.getParameter("prenomEnt");
+        String login = request.getParameter("logEnt");
+        String mdp = request.getParameter("mdpEnt");
+       
+        String message = "";
+        if (nom.trim().isEmpty() || prenom.isEmpty() || login.isEmpty() || mdp.isEmpty())
+        {
+            message = "Erreur, vous n'avez pas rempli tous les champs" + "<br><a href=\"CreerEnt.jsp\">Cliquez ici</a> pour accéder au formulaire de création d'un entraineur";
+        }
+        else {
+            
+            gestionFederation.creerEntraineur(nom, prenom, login, mdp);
+            message = "Entraineur créé avec succès !";          
+        }
+        request.setAttribute("message", message);
+        
+    }
+    
+      protected void ajoutJoueur (HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException           
+    {
+        String nom = request.getParameter("nomJ");
+        String prenom = request.getParameter("prenomJ");
+       
+        String message = "";
+        if (nom.trim().isEmpty() || prenom.isEmpty())
+        {
+            message = "Erreur, vous n'avez pas rempli tous les champs" + "<br><a href=\"CreerJ.jsp\">Cliquez ici</a> pour accéder au formulaire de création d'un joueu";
+        }
+        else {
+            
+            gestionFederation.creerJoueur(nom, prenom);
+            message = "Joueur créé avec succès !";          
+        }
+        request.setAttribute("message", message);
+        
+    }
+    
+    
     protected void ajoutMatch(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException           
     {
@@ -210,7 +253,17 @@ public class gestionF extends HttpServlet {
                  request.setAttribute("message", message);
              }
           }
-        
+         else if (act.equals("CreerJ") && user.equals("fed"))
+        {
+            jspClient = "/MenuF.jsp";
+            ajoutJoueur(request,response);
+        }
+             else if (act.equals("CreerEnt") && user.equals("fed"))
+        {
+            jspClient = "/MenuF.jsp";
+            ajoutEntraineur(request,response);
+        }
+ 
         Rd = getServletContext().getRequestDispatcher(jspClient);
         Rd.forward(request, response);
         

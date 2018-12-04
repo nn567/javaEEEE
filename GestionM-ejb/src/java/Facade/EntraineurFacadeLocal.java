@@ -31,7 +31,7 @@ public interface EntraineurFacadeLocal {
 
     int count();
 
-    void creerEntraineur(String nom, String prenom, String login, String mdp, List<HistoriqueEEquipe>  histoEE);
+    void creerEntraineur(String nom, String prenom, String login, String mdp);
 
     Entraineur authen(String log, String mdp);
 

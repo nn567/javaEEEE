@@ -40,6 +40,10 @@ public interface gestionFederationLocal {
 
     void creerInterdiction(String id, String date);
 
+    void creerEntraineur(String nom, String prenom, String login, String mdp);
+
+    void creerJoueur(String nom, String prenom);
+
 
     
 }

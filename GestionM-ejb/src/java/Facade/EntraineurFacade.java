@@ -8,6 +8,7 @@ package Facade;
 import Entites.Arbitre;
 import Entites.Entraineur;
 import Entites.HistoriqueEEquipe;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -34,13 +35,13 @@ public class EntraineurFacade extends AbstractFacade<Entraineur> implements Entr
     }
 
     @Override
-    public void creerEntraineur(String nom, String prenom, String login, String mdp, List<HistoriqueEEquipe> histoEE) {
+    public void creerEntraineur(String nom, String prenom, String login, String mdp) {
         Entraineur e = new Entraineur();
         e.setNom(nom);
         e.setPrenom(prenom);
         e.setLogin(login);
         e.setMdp(mdp);
-        e.setHistoriqueEEquipes(histoEE);
+        e.setHistoriqueEEquipes(new ArrayList<HistoriqueEEquipe>() );
         em.persist(e);
     }
 
