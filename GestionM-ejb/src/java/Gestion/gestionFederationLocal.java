@@ -43,8 +43,8 @@ public interface gestionFederationLocal {
 
     List<Entraineur> recupEntraineur();
 
+    void creerEntraineur(String nom, String prenom, String login, String mdp);
 
-
-
+    void creerJoueur(String nom, String prenom);
     
 }

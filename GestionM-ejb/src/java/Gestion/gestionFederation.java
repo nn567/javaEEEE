@@ -38,6 +38,12 @@ import javax.ejb.Stateless;
 public class gestionFederation implements gestionFederationLocal {
 
     @EJB
+    private JoueurFacadeLocal joueurFacade1;
+
+    @EJB
+    private EntraineurFacadeLocal entraineurFacade1;
+
+    @EJB
     private Match1FacadeLocal match1Facade;
 
     @EJB
@@ -247,6 +253,14 @@ return b;
 
     
     
+   @Override
+    public void creerEntraineur(String nom, String prenom, String login, String mdp) {
+    entraineurFacade.creerEntraineur(nom, prenom, login, mdp);}
+
+    @Override
+    public void creerJoueur(String nom, String prenom) {
+    joueurFacade.creerJoueur(nom, prenom);}
+
     
     
     

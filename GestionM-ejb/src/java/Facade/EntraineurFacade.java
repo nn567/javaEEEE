@@ -41,7 +41,11 @@ public class EntraineurFacade extends AbstractFacade<Entraineur> implements Entr
         e.setPrenom(prenom);
         e.setLogin(login);
         e.setMdp(mdp);
+
         e.setHistoriqueEEquipes(new ArrayList<HistoriqueEEquipe>());
+
+        e.setHistoriqueEEquipes(new ArrayList<HistoriqueEEquipe>() );
+
         em.persist(e);
     }
 

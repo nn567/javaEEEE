@@ -38,6 +38,14 @@
                 <li>
                     <a href ="gestionF?action=SanctJ">Sanctionner joueur</a>
                 </li>
+                <br>
+                <li>
+                    <a href ="CreerJ.jsp">Créer joueur</a>
+                </li>
+                <br>
+                <li>
+                    <a href ="CreerEnt.jsp">Créer entraineur</a>
+                </li>
             </ul>
         </nav>
 

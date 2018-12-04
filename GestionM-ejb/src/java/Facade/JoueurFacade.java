@@ -9,6 +9,7 @@ import Entites.Arbitre;
 import Entites.FauteComise;
 import Entites.HistoriqueJEquipe;
 import Entites.Joueur;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -36,15 +37,16 @@ public class JoueurFacade extends AbstractFacade<Joueur> implements JoueurFacade
     }
 
     @Override
-    public void creerJoueur(String nom, String prenom, List<FauteComise> listeF, List<HistoriqueJEquipe> histoE, Date dateI) {
+    public void creerJoueur(String nom, String prenom) {
         Joueur j = new Joueur();
         j.setNom(nom);
         j.setPrenom(prenom);
-        j.setFauteComises(listeF);
-        j.setHistoriqueJEquipes(histoE);
-        j.setDateInterdiction(dateI);
+        j.setFauteComises(new ArrayList<FauteComise>());
+        j.setHistoriqueJEquipes(new ArrayList<HistoriqueJEquipe>() );
+        j.setDateInterdiction(null);
         em.persist(j);
     }
+    // a.setMatchs(new ArrayList<Match1>());
 
     @Override
     public void supprimerJoueur(Joueur j) {
