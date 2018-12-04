@@ -7,6 +7,7 @@ package Facade;
 
 import Entites.Arbitre;
 import Entites.Equipe;
+import Entites.Faute;
 import Entites.Match1;
 import java.util.Date;
 import java.util.List;
@@ -39,5 +40,9 @@ public interface Match1FacadeLocal {
     List<Match1> recupMatchsArbitre(Arbitre a);
 
     List<Match1> recupMatchsEquipe(Equipe e);
+
+    List recupMatchsFaute(Faute f);
+
+    List recupMatchsDate(Date d);
     
 }
