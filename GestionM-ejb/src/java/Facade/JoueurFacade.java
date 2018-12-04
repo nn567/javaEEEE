@@ -23,7 +23,7 @@ import javax.persistence.Query;
 @Stateless
 public class JoueurFacade extends AbstractFacade<Joueur> implements JoueurFacadeLocal {
 
-    @PersistenceContext(unitName = "GestionMatch-ejbPU")
+    @PersistenceContext(unitName = "GestionM-ejbPU")
     private EntityManager em;
 
     @Override
@@ -61,6 +61,40 @@ public class JoueurFacade extends AbstractFacade<Joueur> implements JoueurFacade
             return liste.get(0);
         else return null;
     }
+
+    
+    
+    @Override
+    public List<Joueur> recupJoueurs() {
+        Query requete = em.createQuery("SELECT j from Joueur as j");     
+        List<Joueur> liste =  requete.getResultList();
+        return liste;
+    }
+
+    @Override
+    public Joueur rechercheJoueurId(long id) {
+       Query requete = em.createQuery("SELECT j from Joueur as j where j.id:=id");
+        requete.setParameter("id", id);      
+        List<Joueur> liste =  requete.getResultList();
+        if (!liste.isEmpty())
+            return liste.get(0);
+        else return null;
+    }
+
+    @Override
+    public void sanctionnerJ(long id, Date d) {
+         Query requete = em.createQuery("SELECT j from Joueur as j where j.id:=id");
+         Joueur j = new Joueur();
+        requete.setParameter("id", id);      
+        List<Joueur> liste =  requete.getResultList();
+        if (!liste.isEmpty())
+           j = liste.get(0);
+        j.setDateInterdiction(d);
+        em.merge(j);
+    
+    }
+    
+    
     
     
     

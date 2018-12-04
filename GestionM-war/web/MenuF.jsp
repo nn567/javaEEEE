@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<link href="newcss.css" rel="stylesheet" type="text/css">
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,12 +15,31 @@
     <body>
         <h1></h1>
         <p> 
-            <% String attribut = (String)request.getAttribute("message");
-        out.println(attribut);
-        %>
+            <% String attribut = (String) request.getAttribute("message");
+                out.println(attribut);
+            %>
         </p>
-        <a href ="CreerE.jsp">Créer équipe</a>
-         <a href ="CreerA.jsp">Créer arbitre</a>
-         <a href ="gestionF?action=creerMatch">Créer match</a>
+        <nav>
+            <ul>
+                <li>
+                    <a href ="CreerE.jsp">Créer équipe</a>
+                </li>
+                <br>
+                <li>
+                    <a href ="CreerA.jsp">Créer arbitre</a>
+                </li>
+                <br>
+                <li>
+                    <a href ="gestionF?action=creerMatch">Créer match</a>
+                </li>
+                <br>
+                <li>
+                    <a href ="gestionF?action=SanctJ">Sanctionner joueur</a>
+                </li>
+            </ul>
+        </nav>
+
+
+
     </body>
 </html>

@@ -17,7 +17,7 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class UtilisateurFacade extends AbstractFacade<Utilisateur> implements UtilisateurFacadeLocal {
 
-    @PersistenceContext(unitName = "GestionMatch-ejbPU")
+    @PersistenceContext(unitName = "GestionM-ejbPU")
     private EntityManager em;
 
     @Override

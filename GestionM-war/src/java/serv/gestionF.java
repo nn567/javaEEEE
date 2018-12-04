@@ -7,14 +7,19 @@ package serv;
 
 import Entites.Arbitre;
 import Entites.Equipe;
+import Entites.Joueur;
 import gestion.gestionFederationLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.String.format;
+import static java.lang.String.format;
 import java.sql.Date;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
@@ -66,8 +71,8 @@ public class gestionF extends HttpServlet {
         String idA = request.getParameter("idA");
         String E2 = request.getParameter("nomE2");
         String date = request.getParameter("date");
-        Date d = Date.valueOf(date);
-        Date today = (Date) new java.util.Date();
+        //Date d = Date.valueOf(date);
+      //  Date today = (Date) new java.util.Date();
 //        String heure = request.getParameter("heure");
        
         String message = "";
@@ -76,15 +81,26 @@ public class gestionF extends HttpServlet {
            
             message = "Erreur, vous n'avez pas rempli tous les champs" + "<br><a href=\"CreerA.jsp\">Cliquez ici</a> pour accéder au formulaire de création d'un arbitre";
         }
-        else if (d.before(today)){
+       /* else if (d.before(today)){
             message = "La date n'est pas supérieure à aujourd'hui";
-        }
+        }*/
         else {
-             long id = Long.valueOf(idA);
+            String dateTimeFormatPattern = "yyyy-MM-dd'T'HH:mm";
+           final DateFormat format = new SimpleDateFormat(dateTimeFormatPattern);
+           
+           try{
+               java.util.Date parsedDate = format.parse(date);
+               long id = Long.valueOf(idA);
           
-     
-            gestionFederation.creerMatch(E1, E2, id, date);
-            message = "Match créé avec succès !";          
+     int h = parsedDate.getHours();
+            boolean b = gestionFederation.creerMatch(E1, E2, id, parsedDate);
+         if (b)   message = "Match créé avec succès !";        
+           }          
+           catch (ParseException parseException)
+   {
+       System.out.println(parseException.getMessage());
+   }
+               
         }
         request.setAttribute("message", message);
         
@@ -170,6 +186,30 @@ public class gestionF extends HttpServlet {
            jspClient = "/MenuF.jsp";
            ajoutMatch(request,response);
         }
+          else if (act.equals("SanctJ"))
+          {
+            jspClient="/SanctionnerJ.jsp";     
+            List <Joueur> list = gestionFederation.recupJoueurs();
+            request.setAttribute("listeJoueurs", list);
+          }
+        
+          else if (act.equals("CreerInter"))
+          {
+             String id = request.getParameter("idJ");
+             String date = request.getParameter("date");
+                         
+             if (id.trim().isEmpty() || date.trim().isEmpty())
+             {
+                  message = "Erreur, vous avez pas rempli les champs";
+                  request.setAttribute("message", message);
+             }
+             else {
+                 jspClient = "/MenuF.jsp";
+                 gestionFederation.creerInterdiction(id, date);
+                 message = "Interdiction créée avec succèss";
+                 request.setAttribute("message", message);
+             }
+          }
         
         Rd = getServletContext().getRequestDispatcher(jspClient);
         Rd.forward(request, response);

@@ -22,7 +22,7 @@ import javax.persistence.Query;
 @Stateless
 public class ArbitreFacade extends AbstractFacade<Arbitre> implements ArbitreFacadeLocal {
 
-    @PersistenceContext(unitName = "GestionMatch-ejbPU")
+    @PersistenceContext(unitName = "GestionM-ejbPU")
     private EntityManager em;
 
     @Override

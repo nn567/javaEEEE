@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<link href="newcss.css" rel="stylesheet" type="text/css">
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,10 +14,26 @@
         <title>Menu</title>
     </head>
     <body>
-        <h1>Menu</h1>
-        <a href ="AutFed.jsp">Authentification Fédération</a>
-        <a href ="AutFed.jsp">Authentification Entraineur</a>
-        <a href ="AutFed.jsp">Authentification Arbitre</a>
+      <nav>
+  <ul>
+    <li>
+      <a href ="AutFed.jsp">Authentification Fédération</a>
+    </li>
+    <br>
+    <li>
+       <a href ="">Authentification Entraineur</a>
+    </li>
+    <br>
+    <li>
+       <a href ="">Authentification Arbitre</a>
+    </li>
+    <br>
+    <li>
+      <a href="#">Tout public</a>
+    </li>
+  </ul>
+</nav>
+       
         
     </body>
 </html>

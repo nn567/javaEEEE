@@ -23,7 +23,7 @@ import javax.persistence.Query;
 @Stateless
 public class FauteComiseFacade extends AbstractFacade<FauteComise> implements FauteComiseFacadeLocal {
 
-    @PersistenceContext(unitName = "GestionMatch-ejbPU")
+    @PersistenceContext(unitName = "GestionM-ejbPU")
     private EntityManager em;
 
     @Override

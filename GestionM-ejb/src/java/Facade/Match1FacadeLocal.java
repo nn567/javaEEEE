@@ -32,7 +32,7 @@ public interface Match1FacadeLocal {
     List<Match1> findRange(int[] range);
 
     int count();
-    void creerMatch(Date date, int butE1, int butE2, Arbitre a, Equipe e1, Equipe e2 );
+    void creerMatch(Date date, String heureMin,int butE1, int butE2, Arbitre a, Equipe e1, Equipe e2 );
 
     void modifierMatch(Date date, String eq1, String eq2);
 

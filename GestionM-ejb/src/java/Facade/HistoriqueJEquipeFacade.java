@@ -20,7 +20,7 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class HistoriqueJEquipeFacade extends AbstractFacade<HistoriqueJEquipe> implements HistoriqueJEquipeFacadeLocal {
 
-    @PersistenceContext(unitName = "GestionMatch-ejbPU")
+    @PersistenceContext(unitName = "GestionM-ejbPU")
     private EntityManager em;
 
     @Override

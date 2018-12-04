@@ -38,5 +38,11 @@ public interface JoueurFacadeLocal {
     void supprimerJoueur(Joueur j);
 
     Joueur rechercheJoueur(String n, String p);
+
+    List<Joueur> recupJoueurs();
+
+    Joueur rechercheJoueurId(long id);
+
+    void sanctionnerJ(long id, Date d);
     
 }

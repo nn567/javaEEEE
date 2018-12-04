@@ -7,6 +7,7 @@ package Entites;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Formatter;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -144,7 +145,27 @@ public class Match1 implements Serializable {
         this.butsE1 = butsE1;
     }
 
-    
+          private String heureMinute;
+
+    /**
+     * Get the value of heureMinute
+     *
+     * @return the value of heureMinute
+     */
+    public String getHeureMinute() {
+        return heureMinute;
+    }
+
+    /**
+     * Set the value of heureMinute
+     *
+     * @param heureMinute new value of heureMinute
+     */
+    public void setHeureMinute(String heureMinute) {
+        this.heureMinute = heureMinute;
+    }
+
+
        @Temporal(javax.persistence.TemporalType.DATE)
        private Date date;
 

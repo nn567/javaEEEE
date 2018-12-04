@@ -8,6 +8,7 @@ package gestion;
 import Entites.Arbitre;
 import Entites.Equipe;
 import Entites.FauteComise;
+import Entites.Joueur;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.Local;
@@ -25,7 +26,7 @@ public interface gestionFederationLocal {
 
     void affecterEE(String n, String p, String nomE);
 
-    void creerMatch(String eq1, String eq2, long id, String date);
+    boolean creerMatch(String eq1, String eq2, long id, Date d);
 
     void interdiction(String n, String p, String date);
 
@@ -34,6 +35,10 @@ public interface gestionFederationLocal {
     List<Equipe> recupEquipes();
 
    List<Arbitre> recupArbitres();
+
+    List<Joueur> recupJoueurs();
+
+    void creerInterdiction(String id, String date);
 
 
     

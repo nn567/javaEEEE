@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<link href="newcss1.css" rel="stylesheet" type="text/css">
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,46 +13,27 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Saisir informations arbitre</h1>
-        <form method ="get" action="gestionF">   
-            <table>
-                <tr>
-                    <td>
-                        <label for="nomA">Nom<span class="requis">*</span></label> 
-                    </td>
-                    <td>
-                        <input type ="text" name="nomA" value="" size="20" maxlength="20"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="prenomA">Prénom<span class="requis">*</span></label> 
-                    </td>
-                    <td>
-                        <input type ="text" name="prenomA" value="" size="20" maxlength="20"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="logA">Login<span class="requis">*</span></label> 
-                    </td>
-                    <td>
-                        <input type ="text" name="logA" value="" size="20" maxlength="20"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="mdpA">Mot de passe<span class="requis">*</span></label> 
-                    </td>
-                    <td>
-                        <input type ="password" name="mdpA" value="" size="20" maxlength="20"/>
-                    </td>
-                </tr>
-            </table>
-                <input type ="hidden" name="action" value="CreerA">
-        
-            <input type="submit" value="Valider"/>
-            <input type="reset" value="Remettre à 0"/>               
-        </form>
+        <div class='bold-line'></div>
+        <div class='container'>
+            <div class='window'>
+                <div class='overlay'></div>
+                <div class='content'>
+                    <div class='welcome'>Saisir informations arbitre</div>
+                    <div class='input-fields'>
+                        <form  method ="get" action="gestionF">
+                            <input type='text' placeholder='Nom' name ="nomA" class='input-line full-width'></input>
+                            <input type='text' placeholder='Prénom' name ="prenomA" class='input-line full-width'></input>
+                            <input type='text' placeholder='Nom' name ="logA" class='input-line full-width'></input>
+                            <input type='text' placeholder='Nom' name ="mdpA" class='input-line full-width'></input>
+                            <input type ="hidden" name="action" value="CreerA">
+                            </div>
+
+                            <div><button class='ghost-round full-width'>Valider</button></div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>   
+
     </body>
 </html>

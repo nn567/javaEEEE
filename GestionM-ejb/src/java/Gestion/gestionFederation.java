@@ -21,6 +21,9 @@ import Facade.HistoriqueEEquipeFacadeLocal;
 import Facade.JoueurFacadeLocal;
 import Facade.Match1FacadeLocal;
 import gestion.gestionFederationLocal;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -81,7 +84,9 @@ public class gestionFederation implements gestionFederationLocal {
 
     
   @Override
-   public void creerMatch(String eq1, String eq2, long id, String date) {
+   public boolean creerMatch(String eq1, String eq2, long id, Date d) {
+       
+       boolean b = false;
         Equipe equipe1 = equipeFacade.rechercheEquipe(eq1);
         Equipe equipe2 = equipeFacade.rechercheEquipe(eq2);
 
@@ -96,8 +101,7 @@ public class gestionFederation implements gestionFederationLocal {
         
         List<Match1> listeME2 = match1Facade.recupMatchsEquipe(equipe2);
         
-        
-       Date d = java.sql.Date.valueOf(date);
+       
        
      
         if (equipe1 != null && equipe2 != null && a != null && d != null) {
@@ -105,7 +109,7 @@ public class gestionFederation implements gestionFederationLocal {
             if (!liste.isEmpty()) //on vérifie d'abord la dispo de l'arbitre
             {
                 for (Match1 m : liste) {
-                    if (!m.getDate().equals(d)) {
+                    if (m.getDate().equals(d)) {
                         b1 = false;
                     } else {
                         b1 = true;
@@ -119,7 +123,7 @@ public class gestionFederation implements gestionFederationLocal {
             {
                 for (Match1 m : listeME1) // on récupère les matchs de l'équipe 1
                 {
-                    if (!m.getDate().equals(d)) //on vérifie la date du match de l'equipe 1
+                    if (m.getDate().equals(d)) //on vérifie la date du match de l'equipe 1
                     {
                         b2 = false;
                     } else {
@@ -132,7 +136,7 @@ public class gestionFederation implements gestionFederationLocal {
 
             if (!listeME2.isEmpty()) {
                 for (Match1 m1 : listeME2) {
-                    if (!m1.getDate().equals(d)) {
+                    if (m1.getDate().equals(d)) {
                         b3 = false;
                     } else {
                         b3 = true;
@@ -144,10 +148,27 @@ public class gestionFederation implements gestionFederationLocal {
 
             if (b1&&b2&&b3)
             {
-                match1Facade.creerMatch(d, 0, 0, a, equipe1, equipe2);
+                String h1 ="";
+                String m1 = "";
+                int h = d.getHours();
+                if (h<10)
+                    h1= "0"+String.valueOf(h);
+                else 
+                    h1= String.valueOf(h);
+                
+                int min = d.getMinutes();
+                if (min<10)
+                    m1= "0"+String.valueOf(min);
+                else 
+                    m1= String.valueOf(min);
+                
+               
+                String heureMin = h1+":"+m1;
+                match1Facade.creerMatch(d,heureMin, 0, 0, a, equipe1, equipe2);
+                b = true;
             }
         }
-
+return b;
     }
 
     @Override
@@ -187,6 +208,31 @@ public class gestionFederation implements gestionFederationLocal {
     public List<Arbitre> recupArbitres() {
         return arbitreFacade.recupArbitres();
     }
+
+    @Override
+    public List<Joueur> recupJoueurs() {
+        return joueurFacade.recupJoueurs();
+    }
+
+    @Override
+    public void creerInterdiction(String id, String date) {
+        long idJ = Long.valueOf(id);
+        
+           String dateTimeFormatPattern = "yyyy-MM-dd";
+           final DateFormat format = new SimpleDateFormat(dateTimeFormatPattern);
+           
+           try{
+               java.util.Date parsedDate = format.parse(date);
+               joueurFacade.sanctionnerJ(idJ, parsedDate);
+           }
+            catch (ParseException parseException)
+                {
+                    System.out.println(parseException.getMessage());
+                }
+         
+        
+    }
+    
     
     
     

@@ -25,7 +25,7 @@ import javax.persistence.Query;
 @Stateless
 public class Match1Facade extends AbstractFacade<Match1> implements Match1FacadeLocal {
 
-    @PersistenceContext(unitName = "GestionMatch-ejbPU")
+    @PersistenceContext(unitName = "GestionM-ejbPU")
     private EntityManager em;
 
     @Override
@@ -38,7 +38,7 @@ public class Match1Facade extends AbstractFacade<Match1> implements Match1Facade
     }
     
     @Override
-    public void creerMatch(Date date, int butE1, int butE2, Arbitre a, Equipe e1, Equipe e2) {
+    public void creerMatch(Date date, String heureMin, int butE1, int butE2, Arbitre a, Equipe e1, Equipe e2) {
         Match1 m = new Match1();
         m.setDate(date);
         m.setArbitre(a);
@@ -49,6 +49,7 @@ public class Match1Facade extends AbstractFacade<Match1> implements Match1Facade
         m.setCompoE2(new ArrayList<Joueur>());
         m.setEquipe1(e1);
         m.setEquipe2(e2);
+        m.setHeureMinute(heureMin);
         em.persist(m);
     }
 

@@ -23,7 +23,7 @@ import javax.persistence.Query;
 @Stateless
 public class EquipeFacade extends AbstractFacade<Equipe> implements EquipeFacadeLocal {
 
-    @PersistenceContext(unitName = "GestionMatch-ejbPU")
+    @PersistenceContext(unitName = "GestionM-ejbPU")
     private EntityManager em;
 
     @Override
