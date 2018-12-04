@@ -8,6 +8,7 @@ package Facade;
 import Entites.Arbitre;
 import Entites.Entraineur;
 import Entites.HistoriqueEEquipe;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -34,13 +35,13 @@ public class EntraineurFacade extends AbstractFacade<Entraineur> implements Entr
     }
 
     @Override
-    public void creerEntraineur(String nom, String prenom, String login, String mdp, List<HistoriqueEEquipe> histoEE) {
+    public void creerEntraineur(String nom, String prenom, String login, String mdp) {
         Entraineur e = new Entraineur();
         e.setNom(nom);
         e.setPrenom(prenom);
         e.setLogin(login);
         e.setMdp(mdp);
-        e.setHistoriqueEEquipes(histoEE);
+        e.setHistoriqueEEquipes(new ArrayList<HistoriqueEEquipe>());
         em.persist(e);
     }
 
@@ -60,6 +61,23 @@ public class EntraineurFacade extends AbstractFacade<Entraineur> implements Entr
          Query requete = em.createQuery("SELECT j from Entraineur as j where j.nom=:nom and j.prenom=:pre");
         requete.setParameter("nom", n);
         requete.setParameter("pre", p);       
+        List<Entraineur> liste =  requete.getResultList();
+        if (!liste.isEmpty())
+            return liste.get(0);
+        else return null;
+    }
+
+    @Override
+    public List<Entraineur> recupEntraineurs() {
+        Query requete = em.createQuery("SELECT j from Entraineur as j");     
+        List<Entraineur> liste =  requete.getResultList();
+        return liste;
+    }
+
+    @Override
+    public Entraineur rechercheEntraineurId(long id) {
+         Query requete = em.createQuery("SELECT j from Entraineur as j where j.id=:id");
+        requete.setParameter("id", id);
         List<Entraineur> liste =  requete.getResultList();
         if (!liste.isEmpty())
             return liste.get(0);

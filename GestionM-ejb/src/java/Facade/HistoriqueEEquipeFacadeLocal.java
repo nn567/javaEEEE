@@ -33,6 +33,12 @@ public interface HistoriqueEEquipeFacadeLocal {
 
     int count();
 
-    void creerHEE(Date dateD, Date dateF,  Entraineur entraineur, Equipe equipe);
+    void creerHEE(Entraineur entraineur, Equipe equipe);
+
+    List<HistoriqueEEquipe> recupHE(Entraineur e, Equipe eq);
+
+    void majHEE(long id);
+
+    HistoriqueEEquipe recupDernierHE(Entraineur e);
     
 }

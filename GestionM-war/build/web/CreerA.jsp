@@ -23,8 +23,8 @@
                         <form  method ="get" action="gestionF">
                             <input type='text' placeholder='Nom' name ="nomA" class='input-line full-width'></input>
                             <input type='text' placeholder='Prénom' name ="prenomA" class='input-line full-width'></input>
-                            <input type='text' placeholder='Nom' name ="logA" class='input-line full-width'></input>
-                            <input type='text' placeholder='Nom' name ="mdpA" class='input-line full-width'></input>
+                            <input type='text' placeholder='Login' name ="logA" class='input-line full-width'></input>
+                            <input type='text' placeholder='Mot de passe' name ="mdpA" class='input-line full-width'></input>
                             <input type ="hidden" name="action" value="CreerA">
                             </div>
 

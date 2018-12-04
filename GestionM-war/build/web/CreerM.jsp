@@ -50,7 +50,7 @@
                                 <%}%>
                             </select>
 
-                            <label for="dateH">Date du match<span class="requis"></span></label> 
+                            <label for="dateH">Date et heure du match<span class="requis"></span></label> 
                             <input type="datetime-local" name="date" class ="input-line full-width" value="" size="20" maxlength="20"/>
 
                             <input type ="hidden" name="action" value="CreerM">

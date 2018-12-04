@@ -74,12 +74,19 @@ public class gestionFederation implements gestionFederationLocal {
     }
 
     @Override
-    public void affecterEE(String n, String p, String nomE) {
+    public void affecterEE(long id, String nomE) {
         
-        Entraineur e = entraineurFacade.rechercheEntraineur(n, p);
-        Equipe eq = equipeFacade.rechercheEquipe(n);
+        Entraineur e = entraineurFacade.rechercheEntraineurId(id);
+        Equipe eq = equipeFacade.rechercheEquipe(nomE);
         if (e!=null && eq!=null)
-        historiqueEEquipeFacade.creerHEE(new Date(), null, e, eq);
+            if (e.getHistoriqueEEquipes().isEmpty())
+                    historiqueEEquipeFacade.creerHEE(e, eq);
+            else if (historiqueEEquipeFacade.recupHE(e, eq).isEmpty())
+            {
+               HistoriqueEEquipe h = historiqueEEquipeFacade.recupDernierHE(e);
+               historiqueEEquipeFacade.majHEE(h.getId());
+               historiqueEEquipeFacade.creerHEE(e, eq);
+            }
     }
 
     
@@ -232,6 +239,14 @@ return b;
          
         
     }
+
+    @Override
+    public List<Entraineur> recupEntraineur() {
+       return entraineurFacade.recupEntraineurs();
+    }
+
+    
+    
     
     
     

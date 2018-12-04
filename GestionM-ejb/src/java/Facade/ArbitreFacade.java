@@ -42,6 +42,7 @@ public class ArbitreFacade extends AbstractFacade<Arbitre> implements ArbitreFac
         a.setLogin(login);
         a.setMdp(mdp);
         a.setMatchs(new ArrayList<Match1>());
+       
         em.persist(a);
     }
 

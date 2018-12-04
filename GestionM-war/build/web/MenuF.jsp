@@ -16,7 +16,9 @@
         <h1></h1>
         <p> 
             <% String attribut = (String) request.getAttribute("message");
-                out.println(attribut);
+               if (attribut != null) 
+                   out.println(attribut);
+               else out.println("");
             %>
         </p>
         <nav>

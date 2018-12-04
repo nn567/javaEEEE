@@ -6,6 +6,7 @@
 package gestion;
 
 import Entites.Arbitre;
+import Entites.Entraineur;
 import Entites.Equipe;
 import Entites.FauteComise;
 import Entites.Joueur;
@@ -24,7 +25,7 @@ public interface gestionFederationLocal {
 
     void creerArbitre(String n, String p, String l, String m);
 
-    void affecterEE(String n, String p, String nomE);
+    void affecterEE(long id, String nomE);
 
     boolean creerMatch(String eq1, String eq2, long id, Date d);
 
@@ -39,6 +40,10 @@ public interface gestionFederationLocal {
     List<Joueur> recupJoueurs();
 
     void creerInterdiction(String id, String date);
+
+    List<Entraineur> recupEntraineur();
+
+
 
 
     

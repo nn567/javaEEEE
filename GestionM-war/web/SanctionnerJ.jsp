@@ -26,25 +26,18 @@
                     <div class='welcome'>Saisir informations interdictions</div>
                     <div class='input-fields'>
                         <form  method ="get" action="gestionF">
-
-
                             <label for="idJ">Joueur<span class="requis">*</span></label>
-
                             <select name="idJ" class='input-line full-width'>
                                 <% for (Joueur a : listeJ) {%>
                                 <option value="<%=a.getId()%>"><%=a.getNom()%> <%=a.getPrenom()%></option>
-                                <%}%>
+                                <%}%>                           
                             </select>
-
                             <label for="date">Date d'interdiction<span class="requis"></span></label> 
                             <input type="date" name="date" class ="input-line full-width" value="" size="20" maxlength="20"/>
-
                             <input type ="hidden" name="action" value="CreerInter">
                             </div>
-
                             <div><button class='ghost-round full-width'>Valider</button></div>
                         </form>
-
                     </div>
                 </div>
             </div>   
