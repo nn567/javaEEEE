@@ -7,6 +7,7 @@ package Facade;
 
 import Entites.Arbitre;
 import Entites.Equipe;
+import Entites.Faute;
 import Entites.FauteComise;
 import Entites.Joueur;
 import Entites.Match1;
@@ -73,5 +74,21 @@ public class Match1Facade extends AbstractFacade<Match1> implements Match1Facade
         requete.setParameter("eq", e);     
         List<Match1> liste =  requete.getResultList();
         return  liste;
+    }
+
+    @Override
+    public List<Match1> recupMatchsFaute(Faute f) {
+        Query requete = em.createQuery("SELECT m from Match1 as m where m.fautes:eq");
+        requete.setParameter("fa", f);
+        List<Match1> liste = requete.getResultList();
+        return liste;
+    }
+
+    @Override
+    public List<Match1> recupMatchsDate(Date d) {
+         Query requete = em.createQuery("SELECT m from Match1 as m where m.date");
+        requete.setParameter("da", d);
+        List<Match1> liste = requete.getResultList();
+        return liste;
     }
 }
