@@ -44,5 +44,9 @@ public interface Match1FacadeLocal {
     List recupMatchsFaute(Faute f);
 
     List recupMatchsDate(Date d);
+
+    List afficherMatchDate(Date date);
+
+    List afficherMatchIntervalleDate(Date datedebut, Date datefin);
     
 }

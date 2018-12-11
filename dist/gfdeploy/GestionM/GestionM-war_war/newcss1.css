@@ -201,6 +201,18 @@ button:focus {
   background-size:cover;
 }
 
+table{
+  width:100%;
+}
+td{
+    text-align : center;
+}
+
+tr{
+    border : 1px solid white;
+}
+
+
 @media (max-width: 500px) {
   .window {
     width: 100%;

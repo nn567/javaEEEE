@@ -91,4 +91,21 @@ public class Match1Facade extends AbstractFacade<Match1> implements Match1Facade
         List<Match1> liste = requete.getResultList();
         return liste;
     }
+
+    @Override
+    public List afficherMatchDate(Date date) {
+        Query requete = em.createQuery("SELECT m from Match1 as m where m.date=:date");
+        requete.setParameter("date", date);     
+        return requete.getResultList();
+    }
+
+    @Override
+    public List afficherMatchIntervalleDate(Date datedebut, Date datefin) {
+        Query requete = em.createQuery("SELECT m from Match1 as m where m.date>=:datedebut AND m.date<=:datefin");
+        requete.setParameter("datedebut", datedebut);   
+        requete.setParameter("datefin", datefin);  
+        return requete.getResultList();
+    }
+    
+    
 }

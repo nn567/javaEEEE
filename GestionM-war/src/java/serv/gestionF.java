@@ -10,16 +10,9 @@ import Entites.Equipe;
 import Entites.Joueur;
 import gestion.gestionFederationLocal;
 import java.io.IOException;
-import java.io.PrintWriter;
-import static java.lang.String.format;
-import static java.lang.String.format;
-import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
@@ -252,18 +245,6 @@ public class gestionF extends HttpServlet {
         Rd = getServletContext().getRequestDispatcher(jspClient);
         Rd.forward(request, response);
 
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet gestionF</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet gestionF at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

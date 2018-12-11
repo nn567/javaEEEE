@@ -51,20 +51,10 @@ public class Match1 implements Serializable {
     @ManyToMany
         private List<Joueur> compoE2;
 
-    /**
-     * Get the value of compoE2
-     *
-     * @return the value of compoE2
-     */
     public List<Joueur> getCompoE2() {
         return compoE2;
     }
 
-    /**
-     * Set the value of compoE2
-     *
-     * @param compoE2 new value of compoE2
-     */
     public void setCompoE2(List<Joueur> compoE2) {
         this.compoE2 = compoE2;
     }

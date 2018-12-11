@@ -29,7 +29,7 @@
     </li>
     <br>
     <li>
-      <a href="#">Tout public</a>
+      <a href="MenuPublic.jsp">Tout public</a>
     </li>
   </ul>
 </nav>
