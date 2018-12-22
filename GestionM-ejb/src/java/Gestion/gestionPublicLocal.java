@@ -5,6 +5,7 @@
  */
 package gestion;
 
+import Entites.Equipe;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.Local;
@@ -19,5 +20,11 @@ public interface gestionPublicLocal {
     List afficherMatchDate(Date date);
 
     List afficherMatchIntervalleDate(Date datedebut, Date datefin);
+
+    List afficherMatchEquipe(Equipe equipe);
+
+    Equipe rechercherEquipeNom(String nom);
+
+    List recupListeEquipes();
     
 }

@@ -106,6 +106,14 @@ public class Match1Facade extends AbstractFacade<Match1> implements Match1Facade
         requete.setParameter("datefin", datefin);  
         return requete.getResultList();
     }
+
+    @Override
+    public List afficherMatchEquipe(Equipe equipe) {
+        Query requete = em.createQuery("SELECT m from Match1 as m where m.equipe1=:equipe OR m.equipe2=:equipe");
+        requete.setParameter("equipe", equipe);     
+        return requete.getResultList();
+    }
+    
     
     
 }

@@ -5,9 +5,9 @@
  */
 package serv;
 
+import Entites.Equipe;
 import gestion.gestionPublicLocal;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Date;
 import java.util.Collections;
 import java.util.List;
@@ -29,15 +29,6 @@ public class gestionP extends HttpServlet {
     @EJB
     private gestionPublicLocal gestionPublic;
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String message="";
@@ -53,7 +44,7 @@ public class gestionP extends HttpServlet {
             request.setAttribute("message", "pas d'infos");
         }
         
-        else if (act.equals("afficherMatch"))
+        else if (act.equals("afficherMatchDate"))
         {  
             request.setAttribute("message", "Veuillez sélectionner au moins une date");
             String datedebutstring = request.getParameter("datedebut");
@@ -61,7 +52,6 @@ public class gestionP extends HttpServlet {
             List list = Collections.emptyList();
             if (datedebutstring.trim().isEmpty()){
                 request.setAttribute("listeMatch", list);
-                jspClient = "/AfficherMatch.jsp";
             }
             else{
               if(datefinstring.trim().isEmpty()){
@@ -84,24 +74,33 @@ public class gestionP extends HttpServlet {
                         }
                     }
                 }
-            } 
+            }
             jspClient="/AfficherMatch.jsp";   
         }
-        
+        else if (act.equals("afficherMatchEquipe"))
+        {  
+            request.setAttribute("message", "Veuillez sélectionner une équipe");
+            String equipe = request.getParameter("equipe");
+            List listequipe = gestionPublic.recupListeEquipes();
+            request.setAttribute("listeEquipe", listequipe);
+            List listematch = Collections.emptyList();
+            if (equipe.trim().isEmpty()){
+                request.setAttribute("listeMatch", listematch);
+                jspClient = "/AfficherMatchEquipe.jsp";
+            }
+            else{
+                Equipe e = gestionPublic.rechercherEquipeNom(equipe);
+                listematch = gestionPublic.afficherMatchEquipe(e);
+                request.setAttribute("listeMatch", listematch);
+                if(listematch.isEmpty()){
+                    request.setAttribute("message", "Cette équipe n'a aucun match plannifié");
+                }
+                jspClient="/AfficherMatchEquipe.jsp";  
+            } 
+        }  
         Rd = getServletContext().getRequestDispatcher(jspClient);
         Rd.forward(request, response);
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet gestionP</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet gestionP at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

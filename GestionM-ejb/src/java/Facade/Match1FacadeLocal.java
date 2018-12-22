@@ -48,5 +48,7 @@ public interface Match1FacadeLocal {
     List afficherMatchDate(Date date);
 
     List afficherMatchIntervalleDate(Date datedebut, Date datefin);
+
+    List afficherMatchEquipe(Equipe equipe);
     
 }

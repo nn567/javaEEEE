@@ -85,12 +85,17 @@ public class JoueurFacade extends AbstractFacade<Joueur> implements JoueurFacade
 
     @Override
     public void sanctionnerJ(long id, Date d) {
+        /*
          Query requete = em.createQuery("SELECT j from Joueur as j where j.id:=id");
          Joueur j = new Joueur();
         requete.setParameter("id", id);      
         List<Joueur> liste =  requete.getResultList();
         if (!liste.isEmpty())
            j = liste.get(0);
+        j.setDateInterdiction(d);
+        em.merge(j);*/
+        
+        Joueur j =  rechercheJoueurId(id);
         j.setDateInterdiction(d);
         em.merge(j);
     

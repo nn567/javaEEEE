@@ -3,8 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Meiji/Documents/NetBeansProjects/javaEEEE/GestionM-ejb/src/java/Entites/Utilisateur.java</file>
             <file>file:/C:/Users/Meiji/Documents/NetBeansProjects/javaEEEE/GestionM-ejb/src/java/Facade/Match1Facade.java</file>
+            <file>file:/C:/Users/Meiji/Documents/NetBeansProjects/javaEEEE/GestionM-ejb/src/java/Entites/Equipe.java</file>
+            <file>file:/C:/Users/Meiji/Documents/NetBeansProjects/javaEEEE/GestionM-ejb/src/java/Facade/ArbitreFacade.java</file>
             <file>file:/C:/Users/Meiji/Documents/NetBeansProjects/javaEEEE/GestionM-ejb/src/java/Entites/Match1.java</file>
+            <file>file:/C:/Users/Meiji/Documents/NetBeansProjects/javaEEEE/GestionM-ejb/src/java/Gestion/gestionFederation.java</file>
+            <file>file:/C:/Users/Meiji/Documents/NetBeansProjects/javaEEEE/GestionM-ejb/src/java/Entites/Arbitre.java</file>
+            <file>file:/C:/Users/Meiji/Documents/NetBeansProjects/javaEEEE/GestionM-ejb/src/java/Entites/Faute.java</file>
+            <file>file:/C:/Users/Meiji/Documents/NetBeansProjects/javaEEEE/GestionM-ejb/src/java/Entites/Joueur.java</file>
+            <file>file:/C:/Users/Meiji/Documents/NetBeansProjects/javaEEEE/GestionM-ejb/src/java/Facade/JoueurFacade.java</file>
+            <file>file:/C:/Users/Meiji/Documents/NetBeansProjects/javaEEEE/GestionM-ejb/src/java/Entites/FauteComise.java</file>
+            <file>file:/C:/Users/Meiji/Documents/NetBeansProjects/javaEEEE/GestionM-ejb/src/java/Gestion/gestionPublic.java</file>
         </group>
     </open-files>
 </project-private>

@@ -4,10 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Meiji/Documents/NetBeansProjects/javaEEEE/GestionM-war/src/java/serv/gestionP.java</file>
+            <file>file:/C:/Users/Meiji/Documents/NetBeansProjects/javaEEEE/GestionM-war/web/MenuF.jsp</file>
+            <file>file:/C:/Users/Meiji/Documents/NetBeansProjects/javaEEEE/GestionM-war/web/AfficherMatchEquipe.jsp</file>
             <file>file:/C:/Users/Meiji/Documents/NetBeansProjects/javaEEEE/GestionM-war/web/MenuPublic.jsp</file>
-            <file>file:/C:/Users/Meiji/Documents/NetBeansProjects/javaEEEE/GestionM-war/web/AffecterEE.jsp</file>
+            <file>file:/C:/Users/Meiji/Documents/NetBeansProjects/javaEEEE/GestionM-war/src/java/serv/gestionF.java</file>
             <file>file:/C:/Users/Meiji/Documents/NetBeansProjects/javaEEEE/GestionM-war/web/AfficherMatch.jsp</file>
-            <file>file:/C:/Users/Meiji/Documents/NetBeansProjects/javaEEEE/GestionM-war/web/newcss1.css</file>
         </group>
     </open-files>
 </project-private>

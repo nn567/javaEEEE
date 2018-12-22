@@ -22,8 +22,21 @@
         <nav>
             <ul>
                 <li>
-                    <a href ="gestionP?datedebut=&datefin=&action=afficherMatch">Rechercher des matchs</a>
+                    <a href ="gestionP?datedebut=&datefin=&action=afficherMatch">Afficher le classement</a>
                 </li>
+                <br>
+                <li>
+                    <a href ="gestionP?datedebut=&datefin=&action=afficherMatchDate">Rechercher des matchs par date</a>
+                </li>
+                <br>
+                <li>
+                    <a href ="gestionP?equipe=&action=afficherMatchEquipe">Rechercher des matchs par équipe</a>
+                </li>
+                <br>
+                <li>
+                    <a href ="gestionP?datedebut=&datefin=&action=afficherMatch">Afficher la composition des équipes</a>
+                </li>
+                <br>
                 <br>
             </ul>
         </nav>

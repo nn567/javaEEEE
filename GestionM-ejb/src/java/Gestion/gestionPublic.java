@@ -5,6 +5,8 @@
  */
 package gestion;
 
+import Entites.Equipe;
+import Facade.EquipeFacadeLocal;
 import Facade.Match1FacadeLocal;
 import java.util.Date;
 import java.util.List;
@@ -19,6 +21,10 @@ import javax.ejb.Stateless;
 public class gestionPublic implements gestionPublicLocal {
 
     @EJB
+    private EquipeFacadeLocal equipeFacade;
+
+    
+    @EJB
     private Match1FacadeLocal match1Facade;
 
     @Override
@@ -30,6 +36,26 @@ public class gestionPublic implements gestionPublicLocal {
     public List afficherMatchIntervalleDate(Date datedebut, Date datefin) {
         return match1Facade.afficherMatchIntervalleDate(datedebut, datefin);
     }
+
+    @Override
+    public List afficherMatchEquipe(Equipe equipe) {
+        return match1Facade.afficherMatchEquipe(equipe);
+    }
+
+    @Override
+    public Equipe rechercherEquipeNom(String nom) {
+        return equipeFacade.rechercheEquipe(nom);
+    }
+
+    @Override
+    public List recupListeEquipes() {
+        return equipeFacade.recupEquipes();
+    }
+    
+    
+    
+    
+    
 
     
 }
