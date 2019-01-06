@@ -34,5 +34,7 @@ public interface HistoriqueJEquipeFacadeLocal {
     int count();
 
     void creerHJE(Date dateD, Date dateF, Joueur joueur, Equipe equipe);
+
+    List afficherCompositionActuelle();
     
 }

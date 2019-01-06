@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="Entites.FauteComise"%>
 <%@page import="Entites.Joueur"%>
 <%@page import="java.util.List"%>
@@ -58,10 +59,11 @@
                                     Fautes
                                 </th>
                             </tr>
-                            <% for (Match1 m : listeM) {%>
+                            <% SimpleDateFormat dformat = new SimpleDateFormat("dd/MM/yyyy");
+                                for (Match1 m : listeM) {%>
                             <tr>
                                 <td>
-                                    <%out.println(m.getDate()+" "+m.getDate().getDay()+"/"+m.getDate().getMonth()+"/"+m.getDate().getYear()+"  à "+m.getHeureMinute());%>
+                                    <%=dformat.format(m.getDate())+" à "+m.getHeureMinute()%>
                                 </td>
                                 <td>
                                     <%out.println(m.getArbitre().getNom());%> <%out.println(m.getArbitre().getPrenom());%>
@@ -73,7 +75,7 @@
                                             out.println(j.getNom());%> <%out.println(j.getPrenom());%></br><%}%>
                                 </td>
                                 <td>
-                                    <%out.println(m.getEquipe1().getNomE());%></br></br>
+                                    <%out.println(m.getEquipe2().getNomE());%></br></br>
                                     <% List<Joueur> listeJJ = m.getCompoE2();
                                         for (Joueur j : listeJJ) {
                                             out.println(j.getNom());%> <%out.println(j.getPrenom());%></br><%}%>

@@ -5,8 +5,11 @@
  */
 package gestion;
 
+import Entites.Entraineur;
 import Entites.Equipe;
 import Facade.EquipeFacadeLocal;
+import Facade.HistoriqueEEquipeFacadeLocal;
+import Facade.HistoriqueJEquipeFacadeLocal;
 import Facade.Match1FacadeLocal;
 import java.util.Date;
 import java.util.List;
@@ -19,6 +22,12 @@ import javax.ejb.Stateless;
  */
 @Stateless
 public class gestionPublic implements gestionPublicLocal {
+
+    @EJB
+    private HistoriqueJEquipeFacadeLocal historiqueJEquipeFacade;
+
+    @EJB
+    private HistoriqueEEquipeFacadeLocal historiqueEEquipeFacade;
 
     @EJB
     private EquipeFacadeLocal equipeFacade;
@@ -51,6 +60,24 @@ public class gestionPublic implements gestionPublicLocal {
     public List recupListeEquipes() {
         return equipeFacade.recupEquipes();
     }
+
+    @Override
+    public Entraineur rechercherEntraineurActuel(Equipe equipe) {
+        return historiqueEEquipeFacade.rechercherEntraineurActuel(equipe);
+    }
+
+    @Override
+    public List afficherClassement() {
+        return equipeFacade.afficherClassement();
+    }
+
+    @Override
+    public List afficherComposition() {
+        return historiqueJEquipeFacade.afficherCompositionActuelle();
+    }
+    
+    
+    
     
     
     

@@ -22,7 +22,7 @@
         <nav>
             <ul>
                 <li>
-                    <a href ="gestionP?datedebut=&datefin=&action=afficherMatch">Afficher le classement</a>
+                    <a href ="gestionP?action=afficherClassement">Afficher le classement</a>
                 </li>
                 <br>
                 <li>
@@ -34,7 +34,7 @@
                 </li>
                 <br>
                 <li>
-                    <a href ="gestionP?datedebut=&datefin=&action=afficherMatch">Afficher la composition des équipes</a>
+                    <a href ="gestionP?action=afficherComposition">Afficher la composition des équipes</a>
                 </li>
                 <br>
                 <br>

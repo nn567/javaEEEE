@@ -40,5 +40,7 @@ public interface HistoriqueEEquipeFacadeLocal {
     void majHEE(long id);
 
     HistoriqueEEquipe recupDernierHE(Entraineur e);
+
+    Entraineur rechercherEntraineurActuel(Equipe equipe);
     
 }

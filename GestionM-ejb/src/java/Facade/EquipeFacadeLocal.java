@@ -37,5 +37,7 @@ public interface EquipeFacadeLocal {
     Equipe rechercheEquipe(String n);
 
     List<Equipe> recupEquipes();
+
+    List afficherClassement();
     
 }

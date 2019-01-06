@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="Entites.Equipe"%>
 <%@page import="Entites.FauteComise"%>
 <%@page import="Entites.Joueur"%>
@@ -23,11 +24,12 @@
                             <form  method ="get" action="gestionP">
                                 <center>
                                     Sélectionner une équipe
-                                    <select>
+                                    <select name ="equipe">
+                                        
                                     <% List<Equipe> listeE = listeEquipe;
                                     for (Equipe e : listeE){
                                     %>
-                                    <option name ="equipe" value="<%e.getNomE();%>"> <%e.getNomE();%> </option>
+                                    <option value="<%=e.getNomE()%>"><%=e.getNomE()%></option>
                                     <%}%>
                                     </select>
                                 </center>
@@ -66,10 +68,11 @@
                                     Fautes
                                 </th>
                             </tr>
-                            <% for (Match1 m : listeM) {%>
+                            <% SimpleDateFormat dformat = new SimpleDateFormat("dd/MM/yyyy");
+                                for (Match1 m : listeM) {%>
                             <tr>
                                 <td>
-                                    <%out.println(m.getDate().getDay()+"/"+m.getDate().getMonth()+"/"+m.getDate().getYear()+"  à "+m.getHeureMinute());%>
+                                    <%=dformat.format(m.getDate())+" à "+m.getHeureMinute()%>
                                 </td>
                                 <td>
                                     <%out.println(m.getArbitre().getNom());%> <%out.println(m.getArbitre().getPrenom());%>
@@ -81,7 +84,7 @@
                                             out.println(j.getNom());%> <%out.println(j.getPrenom());%></br><%}%>
                                 </td>
                                 <td>
-                                    <%out.println(m.getEquipe1().getNomE());%></br></br>
+                                    <%out.println(m.getEquipe2().getNomE());%></br></br>
                                     <% List<Joueur> listeJJ = m.getCompoE2();
                                         for (Joueur j : listeJJ) {
                                             out.println(j.getNom());%> <%out.println(j.getPrenom());%></br><%}%>

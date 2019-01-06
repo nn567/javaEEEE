@@ -97,7 +97,23 @@ public class gestionP extends HttpServlet {
                 }
                 jspClient="/AfficherMatchEquipe.jsp";  
             } 
-        }  
+        }
+        else if (act.equals("afficherClassement"))
+        {  
+            request.setAttribute("message", "Il n'y a aucune équipe inscrite");
+            List listequipe = gestionPublic.afficherClassement();
+            request.setAttribute("listeEquipe", listequipe);
+            jspClient="/AfficherClassement.jsp";  
+        }
+        else if (act.equals("afficherComposition"))
+        {  
+            request.setAttribute("message", "Il n'y a aucune équipe inscrite");
+            List listequipe = gestionPublic.afficherClassement();
+            request.setAttribute("listeEquipe", listequipe);
+            List listehistorique = gestionPublic.afficherComposition();
+            request.setAttribute("listeHistorique", listehistorique);
+            jspClient="/AfficherCompositionEquipes.jsp";  
+        }
         Rd = getServletContext().getRequestDispatcher(jspClient);
         Rd.forward(request, response);
 

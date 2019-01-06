@@ -28,8 +28,6 @@ public class Equipe implements Serializable {
     @OneToMany(mappedBy = "equipe1")
     private List<Match1> matchs;
 
-   
-   
 
     @OneToMany(mappedBy = "equipe")
     private List<HistoriqueEEquipe> historiqueEEquipes;

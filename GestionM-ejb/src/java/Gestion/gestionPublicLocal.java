@@ -5,6 +5,7 @@
  */
 package gestion;
 
+import Entites.Entraineur;
 import Entites.Equipe;
 import java.util.Date;
 import java.util.List;
@@ -26,5 +27,11 @@ public interface gestionPublicLocal {
     Equipe rechercherEquipeNom(String nom);
 
     List recupListeEquipes();
+
+    Entraineur rechercherEntraineurActuel(Equipe equipe);
+
+    List afficherClassement();
+
+    List afficherComposition();
     
 }

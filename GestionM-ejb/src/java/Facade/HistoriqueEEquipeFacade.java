@@ -75,13 +75,26 @@ public class HistoriqueEEquipeFacade extends AbstractFacade<HistoriqueEEquipe> i
 
     @Override
     public HistoriqueEEquipe recupDernierHE(Entraineur e) {
-        Query requete = em.createQuery("SELECT j from HistoriqueEEquipe as j where j.entraineur:=ent and j.dateFin is null");
+        Query requete = em.createQuery("SELECT j from HistoriqueEEquipe as j where j.dateFin is null");
         requete.setParameter("ent", e);     
         List<HistoriqueEEquipe> liste =  requete.getResultList();
         if (!liste.isEmpty())
             return liste.get(0);
         else return null;
     }
+
+    @Override
+    public Entraineur rechercherEntraineurActuel(Equipe equipe) {
+        Query requete = em.createQuery("SELECT h from HistoriqueEEquipe as h where h.equipe=:equipe and h.dateFin is null");
+        requete.setParameter("equipe", equipe);     
+        List<HistoriqueEEquipe> liste =  requete.getResultList();
+        if (!liste.isEmpty())
+            return liste.get(0).getEntraineur();
+        else return null;
+    }
+
+    
+
     
     
     

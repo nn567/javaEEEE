@@ -9,9 +9,11 @@ import Entites.Equipe;
 import Entites.HistoriqueJEquipe;
 import Entites.Joueur;
 import java.util.Date;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -41,6 +43,20 @@ public class HistoriqueJEquipeFacade extends AbstractFacade<HistoriqueJEquipe> i
         hje.setEquipe(equipe);
         em.persist(hje);
     }
+
+    @Override
+    public List afficherCompositionActuelle() {
+        Query requete = em.createQuery("SELECT h from HistoriqueJEquipe as h where h.dateFin is null");    
+        List<HistoriqueJEquipe> liste =  requete.getResultList();
+        if (!liste.isEmpty())
+            return liste;
+        else return null;
+    }
+
+    
+
+    
+    
     
     
 }
